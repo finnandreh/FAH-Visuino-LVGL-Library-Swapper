@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "project": "Waveshare-4.3B-Example",
+  "bridgeNamespace": "waveshare43_example",
+  "elements": [
+    {
+      "id": "title_label",
+      "name": "Main title",
+      "screen": "Hardware Test",
+      "type": "label",
+      "lvglObject": "ui_title_label",
+      "direction": "custom_code_to_ui",
+      "valueType": "string",
+      "events": [],
+      "readApi": "lv_label_get_text(ui_title_label)",
+      "writeApi": "lv_label_set_text(ui_title_label, value)",
+      "description": "Top-level screen title that Custom Code may replace."
+    },
+    {
+      "id": "driver_status_label",
+      "name": "Hardware summary",
+      "screen": "Hardware Test",
+      "type": "label",
+      "lvglObject": "ui_driver_status_label",
+      "direction": "custom_code_to_ui",
+      "valueType": "string",
+      "events": [],
+      "readApi": "lv_label_get_text(ui_driver_status_label)",
+      "writeApi": "lv_label_set_text(ui_driver_status_label, value)",
+      "description": "Compact LVGL, touch, display, and expander summary below the sine gauge."
+    },
+    {
+      "id": "touch_status_label",
+      "name": "Last touch status",
+      "screen": "Hardware Test",
+      "type": "label",
+      "lvglObject": "ui_touch_status_label",
+      "direction": "bidirectional",
+      "valueType": "string",
+      "events": [],
+      "readApi": "lv_label_get_text(ui_touch_status_label)",
+      "writeApi": "lv_label_set_text(ui_touch_status_label, value)",
+      "description": "Shows the latest GT911 interaction and touch coordinates."
+    },
+    {
+      "id": "touch_button",
+      "name": "Pause toggle button",
+      "screen": "Hardware Test",
+      "type": "button",
+      "lvglObject": "ui_touch_button",
+      "direction": "bidirectional",
+      "valueType": "bool",
+      "events": [
+        "LV_EVENT_CLICKED"
+      ],
+      "readApi": "waveshare43_example::get_pause_state()",
+      "writeApi": "waveshare43_example::set_pause_state(value)",
+      "visuinoInputCode": "waveshare43_example::set_pause_state(AValue);",
+      "visuinoLoopCode": "Digital1.Send(waveshare43_example::get_pause_state());",
+      "description": "Each click toggles the retained pause command. Keep the waveshare43_example:: namespace on every bridge call. Use waveshare43_example::take_touch_button_click() for a one-loop pulse or waveshare43_example::take_pause_state_change() to detect only state changes. A true pause state means Visuino should stop the sine flow; invert it when wiring to an Enabled input."
+    },
+    {
+      "id": "touch_count_label",
+      "name": "Pause state and click counter",
+      "screen": "Hardware Test",
+      "type": "label",
+      "lvglObject": "ui_touch_count_label",
+      "direction": "bidirectional",
+      "valueType": "string",
+      "events": [],
+      "readApi": "lv_label_get_text(ui_touch_count_label)",
+      "writeApi": "lv_label_set_text(ui_touch_count_label, value)",
+      "description": "Visible running/paused state and count of successful pause-button click events."
+    },
+    {
+      "id": "test_slider",
+      "name": "Sine speed slider",
+      "screen": "Hardware Test",
+      "type": "slider",
+      "lvglObject": "ui_test_slider",
+      "direction": "bidirectional",
+      "valueType": "int",
+      "range": {
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%"
+      },
+      "events": [
+        "LV_EVENT_VALUE_CHANGED"
+      ],
+      "readApi": "waveshare43_example::get_test_slider_value()",
+      "writeApi": "waveshare43_example::set_test_slider_value(value)",
+      "visuinoInputCode": "waveshare43_example::set_test_slider_value(AValue);",
+      "visuinoLoopCode": "Integer1.Send(waveshare43_example::get_test_slider_value());",
+      "description": "0-100 speed command for Visuino. The waveshare43_example:: namespace is required because it tells C++ where the bridge function lives. AValue is the integer received by the Visuino Input. Use waveshare43_example::take_test_slider_change() when only user changes should emit."
+    },
+    {
+      "id": "slider_value_label",
+      "name": "Slider value",
+      "screen": "Hardware Test",
+      "type": "label",
+      "lvglObject": "ui_slider_value_label",
+      "direction": "custom_code_to_ui",
+      "valueType": "string",
+      "events": [],
+      "readApi": "lv_label_get_text(ui_slider_value_label)",
+      "writeApi": "lv_label_set_text(ui_slider_value_label, value)",
+      "description": "Text representation of the current 0-100 sine-speed command."
+    },
+    {
+      "id": "sine_gauge",
+      "name": "Sine output gauge",
+      "screen": "Hardware Test",
+      "type": "gauge",
+      "lvglObject": "ui_sine_gauge",
+      "direction": "custom_code_to_ui",
+      "valueType": "int",
+      "range": {
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%"
+      },
+      "events": [],
+      "readApi": "waveshare43_example::get_sine_gauge_value()",
+      "writeApi": "waveshare43_example::set_sine_gauge_value(value)",
+      "visuinoInputCode": "waveshare43_example::set_sine_gauge_value(AValue);",
+      "visuinoLoopCode": "",
+      "description": "Speedometer-style LVGL meter for the 0-100 sine-wave value generated in Visuino. Use one waveshare43_example::set_sine_gauge_value(AValue); Input call. It updates the needle and percentage label together; no loop output or second label input is required."
+    },
+    {
+      "id": "sine_gauge_value_label",
+      "name": "Sine gauge value",
+      "screen": "Hardware Test",
+      "type": "label",
+      "lvglObject": "ui_sine_gauge_value_label",
+      "direction": "custom_code_to_ui",
+      "valueType": "string",
+      "events": [],
+      "readApi": "lv_label_get_text(ui_sine_gauge_value_label)",
+      "writeApi": "waveshare43_example::set_sine_gauge_value(value)",
+      "visuinoInputCode": "",
+      "visuinoLoopCode": "",
+      "description": "Internal numeric text linked to the sine gauge. Do not create a separate Visuino Input for this label; the gauge setter updates the needle and this label together."
+    }
+  ]
+}

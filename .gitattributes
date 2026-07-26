@@ -1,0 +1,34 @@
+# Keep cross-platform source and documentation stable.
+* text=auto
+/.gitattributes text eol=lf
+/.gitignore text eol=lf
+
+*.c text eol=lf
+*.cc text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.ino text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.rst text eol=lf
+*.toml text eol=lf
+*.xml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.visuino text eol=crlf
+
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.pack binary
+*.pdf binary
+*.png binary
+*.ttf binary
+*.woff binary
+*.zip binary

@@ -1,0 +1,52 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# PyInstaller and temporary release work
+/build/
+/build-*/
+/dist/
+/dist-*/
+/release-build/
+!/dist-release/
+!/dist-release/**
+
+# Local application state
+/registry.json
+/registry.previous.json
+/audit.jsonl
+/backups/
+/cache/
+/staging/
+/default/
+
+# Local diagnostics and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+~$*
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Environment files may contain credentials
+.env
+.env.*
+!.env.example
+
+# Generated documentation snapshots
+/docs/snapshots/
+
+# dist-release is intentionally tracked as the single verified delivery.

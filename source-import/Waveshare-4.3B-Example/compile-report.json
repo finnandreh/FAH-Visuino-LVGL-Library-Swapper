@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "compiledAt": "2026-07-25T17:58:10+02:00",
+  "result": "success",
+  "exitCode": 0,
+  "compiler": {
+    "tool": "arduino-cli",
+    "version": "1.4.0",
+    "platform": "esp32:esp32 3.3.10",
+    "fqbn": "esp32:esp32:esp32s3:USBMode=hwcdc,CDCOnBoot=cdc,CPUFreq=240,FlashMode=qio,FlashSize=16M,PartitionScheme=app3M_fat9M_16MB,PSRAM=opi,LoopCore=1,EventsCore=1"
+  },
+  "importValidation": {
+    "mode": "libraries_directory",
+    "plannedFiles": 1544,
+    "plannedBytes": 93362602,
+    "uiElements": 9,
+    "warnings": [],
+    "status": "valid"
+  },
+  "firmware": {
+    "programBytes": 714054,
+    "programMaximumBytes": 3145728,
+    "programPercent": 22,
+    "globalVariableBytes": 74148,
+    "dynamicMemoryMaximumBytes": 327680,
+    "dynamicMemoryPercent": 22
+  },
+  "usedLibraries": {
+    "VisuinoCustomImplementation": "1.0.0",
+    "ESP32_Display_Panel": "1.0.0",
+    "ESP32_IO_Expander": "1.0.1",
+    "esp-lib-utils": "0.1.2",
+    "lvgl": "8.4.0"
+  },
+  "physicalBoardTest": {
+    "status": "previous_revision_passed_current_ui_upload_pending",
+    "uploadedAt": "2026-07-24T18:23:00+02:00",
+    "port": "COM9",
+    "usbDevice": "USB-Enhanced-SERIAL CH343",
+    "chip": "ESP32-S3 revision 0.2",
+    "detectedPsram": "8 MB",
+    "uploadVerified": true,
+    "startupMarkers": [
+      "Initializing board (Waveshare:ESP32-S3-Touch-LCD-4.3-B)",
+      "TouchPad_ID:0x39,0x31,0x31",
+      "Board begin success",
+      "LVGL display init: panel size 800x480",
+      "LVGL touch input init done",
+      "LVGL port init complete",
+      "READY: 800x480 RGB, GT911 touch, CH422G and backlight"
+    ],
+    "heartbeatVerified": true,
+    "touchInteractionVerified": true,
+    "touchCaptureSeconds": 25,
+    "touchEventMessagesObserved": 386,
+    "buttonEventExample": {
+      "x": 150,
+      "y": 238
+    },
+    "sliderValuesObserved": {
+      "minimum": 20,
+      "maximum": 65
+    },
+    "remainingCheck": "Upload the 2026-07-25 UI revision and physically verify the pause button, sine-speed slider, and 0-100 gauge."
+  }
+}

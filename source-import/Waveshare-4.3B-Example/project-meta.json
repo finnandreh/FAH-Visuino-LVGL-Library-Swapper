@@ -1,0 +1,58 @@
+{
+  "projectName": "Waveshare-4.3B-Example",
+  "status": "complete compile-tested standalone board package",
+  "board": {
+    "product": "Waveshare ESP32-S3-Touch-LCD-4.3B",
+    "module": "ESP32-S3-WROOM-1-N16R8",
+    "arduinoFqbn": "esp32:esp32:esp32s3:USBMode=hwcdc,CDCOnBoot=cdc,CPUFreq=240,FlashMode=qio,FlashSize=16M,PartitionScheme=app3M_fat9M_16MB,PSRAM=opi,LoopCore=1,EventsCore=1",
+    "arduinoCore": "esp32:esp32 3.3.10"
+  },
+  "display": {
+    "controller": "ST7262",
+    "interface": "16-bit RGB",
+    "width": 800,
+    "height": 480,
+    "orientation": "landscape",
+    "pixelClockHz": 16000000
+  },
+  "touch": {
+    "controller": "GT911",
+    "interface": "I2C",
+    "sdaGpio": 8,
+    "sclGpio": 9,
+    "interruptGpio": 4,
+    "reset": "CH422G EXIO1",
+    "maxPoints": 5
+  },
+  "expander": {
+    "controller": "CH422G",
+    "i2cAddress": "0x20"
+  },
+  "backlight": {
+    "type": "CH422G switch output",
+    "pin": "EXIO2",
+    "mode": "on/off; no PWM brightness claim"
+  },
+  "libraryVersions": {
+    "lvgl": "8.4.0",
+    "ESP32_Display_Panel": "1.0.0",
+    "ESP32_IO_Expander": "1.0.1",
+    "esp-lib-utils": "0.1.2"
+  },
+  "publicApi": [
+    "waveshare43_example::begin()",
+    "waveshare43_example::loop()",
+    "waveshare43_example::is_ready()",
+    "waveshare43_example::last_error()",
+    "waveshare43_example::set_test_slider_value(int32_t value)",
+    "waveshare43_example::get_test_slider_value()",
+    "waveshare43_example::take_test_slider_change()",
+    "waveshare43_example::take_touch_button_click()",
+    "waveshare43_example::get_touch_button_count()",
+    "waveshare43_example::set_pause_state(bool paused)",
+    "waveshare43_example::get_pause_state()",
+    "waveshare43_example::take_pause_state_change()",
+    "waveshare43_example::set_sine_gauge_value(int32_t value)",
+    "waveshare43_example::get_sine_gauge_value()"
+  ]
+}
